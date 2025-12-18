@@ -1,52 +1,47 @@
-import { Box, FormControl, FormControlLabel, Grow, InputAdornment, InputLabel, Paper, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material'
+import { Box, FormControl, FormControlLabel, FormHelperText, Grow, InputAdornment, InputLabel, Paper, Radio, RadioGroup, Stack, TextField, Typography } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { MailOutline } from '@mui/icons-material'
 import StepTemplate from './StepTemplate'
 import RenderInput from '../inputs/RenderInput'
 
-const Category = ({ control }) => {
+const Category = ({ data, control, errors }) => {
     return (
         <FormControl component='fieldset'>
             <Controller
                 name="category"
                 control={control}
-                defaultValue=""
+                defaultValue={data?.category || ''}
+                rules={{
+                    required: 'Please choose one option.'
+                }}
                 render={({ field }) => (
-                    <RadioGroup {...field} >
-                        <FormControlLabel
-                            value='puta'
-                            control={<Radio />}
-                            label={
-                                <Paper elevation={3}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-                                        <img src="/uam.png" width={300} height={100} />
-                                        <Typography>Chingada puta</Typography>
-                                    </Box>
-                                </Paper>
-                            }
-                        />
-                    </RadioGroup>
-                )}
-            />
-            <Controller
-                name="category"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                    <RadioGroup {...field} >
-                        <FormControlLabel
-                            value='puta2'
-                            control={<Radio />}
-                            label={
-                                <Paper elevation={3}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-                                        <img src="/uam.png" width={300} height={100} />
-                                        <Typography>Chingada puta2</Typography>
-                                    </Box>
-                                </Paper>
-                            }
-                        />
-                    </RadioGroup>
+                    <>
+                        <FormControl error={!!errors?.category} >
+                            <RadioGroup {...field} >
+                                <FormControlLabel
+                                    value='participant'
+                                    control={<Radio />}
+                                    label={
+                                        <Typography>Participant</Typography>
+                                    }
+                                />
+                                <FormControlLabel
+                                    value='student'
+                                    control={<Radio />}
+                                    label={
+                                        <Typography>Student</Typography>
+                                    }
+                                />
+                            </RadioGroup>
+                            <FormHelperText>
+                                <Grow in={!!errors?.category} timeout={500}>
+                                    <span>
+                                        {errors?.category?.message}
+                                    </span>
+                                </Grow>
+                            </FormHelperText>
+                        </FormControl>
+                    </>
                 )}
             />
         </FormControl>
@@ -72,7 +67,7 @@ export default function SecondStep({ data = {}, stepName = '_', onNext = null, o
                 Category
             </Typography>
 
-            <Category control={control} />
+            <Category control={control} errors={errors} data={data[stepName]} />
         </StepTemplate>
     )
 }

@@ -2,9 +2,11 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { ScrollTop } from '../components/ScrollTop'
-import { Box, Card, CardContent, CardMedia, Fab, Fade, Grid, Paper, Toolbar, Typography } from '@mui/material'
+import { Box, Card, CardContent, CardMedia, Container, Divider, Fab, Fade, Grid, Paper, Stack, Toolbar, Typography } from '@mui/material'
 import { EnergySavingsLeaf, Flight, Groups2, Hotel, Lens, Room, WifiTethering } from '@mui/icons-material'
-import { HeroSection } from '../components/HeroSection'
+import { HeroSection } from './home/sections/HeroSection'
+import { VenueHeroContent } from './venue/components/VenueHeroContent'
+import GenericCTASection from '../components/GenericCTASection'
 
 const FeatureCard = ({ icon, title, text }) => (
     <Paper elevation={5} sx={{
@@ -29,7 +31,7 @@ const FeatureCard = ({ icon, title, text }) => (
                 alignItems: 'center',
                 color: '#5e61ffff',
             }}
-            >
+        >
             {icon}
         </Box>
         <Typography
@@ -129,150 +131,72 @@ export default function VenuePage() {
         <>
             <NavBar />
             <Box component='main'>
-                <HeroSection backgroundImgSrc="/congresoEntrada.webp">
-                    <Box sx={{
-                        width: 'fit-content',
-                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                        border: 2,
-                        borderColor: '#fff',
-                        borderRadius: 25,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        color: '#fff',
-                        padding: { xs: '0.5rem', sm: '0.8rem', md: '0.5rem' },
-                        zIndex: 999,
-                        marginBottom: 3,
-                    }}>
-                        <Lens sx={{
-                            height: { xs: '0.7rem', sm: '0.9rem', md: '1.25rem' },
-                            color: '#8bff95ff'
-                        }} />
-                        <Typography sx={{
-                            fontWeight: 'bold',
-                            fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1.25rem' },
-                            color: '#fff',
-                        }}>
-                            MÉRIDA, MÉXICO
-                        </Typography>
-                    </Box>
-                    <Typography
-                        component='h1'
-                        textAlign='center'
-                        sx={{
-                            fontSize: { xs: '1.5rem', sm: '2.5rem', md: '3.5rem' },
-                            zIndex: 1000,
-                            color: 'white',
-                            fontWeight: 'bold',
-                            textShadow: '3px 3px 7px #000000',
-                            letterSpacing: '0.2px',
-                            marginBottom: 3,
-                            lineHeight: 1.1,
-                            maxWidth: 900,
-                        }}
-                    >
-                        Centro Internacional de Congresos de Yucatán
-                    </Typography>
-                    <Typography
-                        component='h2'
-                        textAlign='center'
-                        sx={{
-                            fontSize: { xs: '0.7rem', sm: '1.5rem', md: '1.5rem' },
-                            zIndex: 1000,
-                            color: 'white',
-                            fontWeight: 'light',
-                            textShadow: '3px 3px 7px #000000',
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase',
-                        }}
-                    >
-                        La sede más moderna y sustentable de la región, galardonada
-                        con certificación LEED Platino, lista para inspirar a la
-                        comunidad científica internacional.
-                    </Typography>
+                <HeroSection
+                    backgroundImgSrc="/congresoEntrada.webp"
+                    height="90vh"
+                    enableParticles={true}
+                    enableRadialGradient={true}
+                >
+                    <VenueHeroContent />
                 </HeroSection>
 
-                <Box component='section' sx={{
-                    px: { xs: 1, sm: 3, md: 10, lg: 15 },
-                    py: { xs: 6, md: 10 }
-                }}>
-                    <Typography
-                        sx={{
-                            fontSize: { xs: '1.5rem ', sm: '2.5rem', md: '3rem' },
-                        }}
-                    >
-                        Modernidad y sustentabilidad
-                    </Typography>
-                    <Grid container spacing={3} sx={{
-                        minHeight: 250
-                    }}>
-                        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-                            <FeatureCard
-                                icon={<Groups2 />}
-                                title='Gran Capacidad'
-                                text='Con una superficie de 10,000 m² y 26 salones, puede albergar hasta 10,000 asistentes.'
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-                            <FeatureCard
-                                icon={<EnergySavingsLeaf />}
-                                title='Certificación LEED'
-                                text='Primer edificio en México con certificación LEED Platino en su categoría, prioritizando la eficiencia energética.'
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 6, md: 4 }}>
-                            <FeatureCard
-                                icon={<WifiTethering />}
-                                title='Alta Conectividad'
-                                text='Infraestructura de fibra óptica y Wi-Fi de alta calidad para soportar miles de asistentes simultáneos.'
-                            />
-                        </Grid>
-                    </Grid>
+                <Box
+                    component="section"
+                    sx={{
+                        py: { xs: 2, md: 3 },
+                        px: { xs: 2, sm: 3, md: 4 },
+                        bgcolor: 'background.default',
+                    }}
+                >
+                    <Container maxWidth="lg">
+                        <Stack alignItems="center" spacing={1} mb={5} textAlign="center">
+
+                            <Typography
+                                variant="h3"
+                                fontWeight="bold"
+                                sx={{ fontSize: { xs: '1.8rem', md: '2.5rem' } }}
+                            >
+                                Modernidad y Sustentabilidad
+                            </Typography>
+                            <Typography
+                                variant="h6"
+                                color="text.secondary"
+                                sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }}
+                            >
+                                Centro Internacional de Congresos de Yucatán
+                            </Typography>
+
+                            <Grid container spacing={3} sx={{
+                                paddingTop: 4,
+                                minHeight: 250
+                            }}>
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                                    <FeatureCard
+                                        icon={<Groups2 />}
+                                        title='Gran Capacidad'
+                                        text='Con una superficie de 10,000 m² y 26 salones, puede albergar hasta 10,000 asistentes.'
+                                    />
+                                </Grid>
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                                    <FeatureCard
+                                        icon={<EnergySavingsLeaf />}
+                                        title='Certificación LEED'
+                                        text='Primer edificio en México con certificación LEED Platino en su categoría, prioritizando la eficiencia energética.'
+                                    />
+                                </Grid>
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                                    <FeatureCard
+                                        icon={<WifiTethering />}
+                                        title='Alta Conectividad'
+                                        text='Infraestructura de fibra óptica y Wi-Fi de alta calidad para soportar miles de asistentes simultáneos.'
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Stack>
+                    </Container>
                 </Box>
 
-                <Box component='section' sx={{
-                    px: { xs: 1, sm: 3, md: 10, lg: 15 },
-                    py: { xs: 6, md: 10 }
-                }}>
-                    <Typography variant="h4" fontWeight="bold" gutterBottom>
-                        El recinto en cifras
-                    </Typography>
-                    <Grid container spacing={4}>
-                        <Grid size={{ xs: 12, sm: 7 }}>
-                            <ImageStatCard
-                                image="/centro1.jpg"
-                                value="26"
-                                label="Salones multifuncionales"
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 5 }}>
-                            <ImageStatCard
-                                image="/centro2.jpg"
-                                value="10,000"
-                                label="Asistentes simultáneos"
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 4 }}>
-                            <ImageStatCard
-                                image="/centro3.jpg"
-                                value="9,430 m²"
-                                label="Área para eventos"
-                            />
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 8 }}>
-                            <ImageStatCard
-                                image="/centroconvenciones.webp"
-                                value="50,000 m²"
-                                label="Superficie total"
-                            />
-                        </Grid>
-                    </Grid>
-                </Box>
-
-                <Box component='section' sx={{
-                    px: { xs: 1, sm: 3, md: 10, lg: 15 },
-                    py: { xs: 6, md: 10 }
-                }}>
+                <GenericCTASection maxWidth='lg' textAlign='left'>
                     <Paper elevation={5} sx={{
                         backgroundColor: '#fff',
                         borderRadius: 10,
@@ -318,6 +242,42 @@ export default function VenuePage() {
                             </Grid>
                         </Grid>
                     </Paper>
+                </GenericCTASection>
+
+                <Box component='section' sx={{
+                    px: { xs: 1, sm: 3, md: 10, lg: 15 },
+                    py: { xs: 6, md: 10 }
+                }}>
+                    <Grid container spacing={4}>
+                        <Grid size={{ xs: 12, sm: 7 }}>
+                            <ImageStatCard
+                                image="/centro1.jpg"
+                                value="26"
+                                label="Salones multifuncionales"
+                            />
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 5 }}>
+                            <ImageStatCard
+                                image="/centro2.jpg"
+                                value="10,000"
+                                label="Asistentes simultáneos"
+                            />
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 4 }}>
+                            <ImageStatCard
+                                image="/centro3.jpg"
+                                value="9,430 m²"
+                                label="Área para eventos"
+                            />
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 8 }}>
+                            <ImageStatCard
+                                image="/centroconvenciones.webp"
+                                value="50,000 m²"
+                                label="Superficie total"
+                            />
+                        </Grid>
+                    </Grid>
                 </Box>
             </Box>
             <Footer />

@@ -1,4 +1,4 @@
-import { Box, Grow, Paper, Step, StepLabel, Stepper } from '@mui/material'
+import { Box, Button, Grow, Paper, Step, StepLabel, Stepper } from '@mui/material'
 import { useEffect, useState } from 'react'
 import BasicInfoStep from './steps/BasicInfoStep'
 import SecondStep from './steps/SecondStep'
@@ -6,13 +6,29 @@ import LastStep from './steps/LastStep'
 
 export default function WizardRegistration() {
     const [activeStep, setActiveStep] = useState(0)
-    const [orientation, setOrientation] = useState('horizontal')
+    const [orientation, _] = useState('horizontal')
     const [formData, setFormData] = useState({})
 
     useEffect(() => {
         console.log('Current form data:');
         console.log(formData);
     }, [formData])
+
+    const onDebugData = () => {
+        setFormData({
+            "title": "Dr.",
+            "firstName": "Eduardo",
+            "lastName": "Escalante Pacheco",
+            "email": "eduardo1582000@gmail.com",
+            "phone": "9993914295",
+            "country": "MX",
+            "city": "Mérida",
+            "institution": "TecNM",
+            "department": "Dirección Académica",
+            "cargo": "Director General",
+            "student": false
+        })
+    }
 
     const handleNext = (data = null, stepName) => {
         if (activeStep < 3) {
@@ -61,7 +77,9 @@ export default function WizardRegistration() {
 
     return (
         <Grow in timeout={800}>
-            <Paper className='d-flex flex-column p-3' elevation={7} sx={{ height: 630, borderTop: 12, borderColor: '#6a45ffff', }}>
+            {/* {debug ? null : null} */}
+            <Paper className='d-flex flex-column p-3 h-100' elevation={7} sx={{ height: 630, borderTop: 12, borderColor: '#6a45ffff', }}>
+                <Button onClick={onDebugData}>Debug data</Button>
                 <Stepper
                     className='p-3'
                     orientation={orientation}

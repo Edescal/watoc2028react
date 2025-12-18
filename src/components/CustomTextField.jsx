@@ -19,7 +19,7 @@ export default function CustomTextField({ value, onChange, maxLenght = 64, multi
                 : 'text.secondary'
     )
 
-    const helperTextHeight = error ? 25 : 3
+    const helperTextHeight = error ? 25+8 : 3
 
     const calculateHeight = () => {
         if (textFieldRef.current) {

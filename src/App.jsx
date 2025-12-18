@@ -10,6 +10,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Register from './pages/Register'
 import Test from './pages/Test'
 import VenuePage from './pages/VenuePage'
+import HotelBooking from './pages/HotelBooking'
+import AbstractSubmissionInfo from './pages/abstractSubmission/AbstractSubmissionInfo'
 
 const darkTheme = createTheme({
 	palette: {
@@ -18,12 +20,30 @@ const darkTheme = createTheme({
 });
 
 const globalTheme = createTheme({
+	palette: {
+		primary: {
+			light: '#757ce8',
+			main: '#3f50b5',
+			dark: '#002884',
+			contrastText: '#fff',
+		},
+		secondary: {
+			light: '#ff7961',
+			main: '#f44336',
+			dark: '#ba000d',
+			contrastText: '#000',
+		},
+	},
 	components: {
 		MuiTextField: {
 			styleOverrides: {
 				root: {
 					'& fieldset': {
-						borderRadius: 20,
+						borderColor: '#a0a4aeff',
+					},
+					'& .MuiOutlinedInput-root': {
+						borderRadius: 15,
+						backgroundColor: '#f5f8ffff', // azul muy suave
 					},
 				},
 			},
@@ -65,6 +85,8 @@ function App() {
 					<Route path='' element={<Home />} />
 					<Route path='*' element={<Home />} />
 					<Route path='/venue' element={<VenuePage />} />
+					<Route path='/hotel-booking' element={<HotelBooking />} />
+					<Route path='/abstract-submission' element={<AbstractSubmissionInfo />} />
 					<Route path='/contact' element={<Contact />} />
 
 

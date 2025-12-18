@@ -1,5 +1,5 @@
-import { ArrowDownward, ArrowForwardIos, ArrowRight, KeyboardArrowDown, Menu as MenuIcon } from '@mui/icons-material';
-import { AppBar, Box, Toolbar, Typography, useScrollTrigger, IconButton, Menu, MenuItem, Fab, ListItemIcon, ListItemText } from '@mui/material';
+import { KeyboardArrowDown, Menu as MenuIcon } from '@mui/icons-material';
+import { AppBar, Box, Toolbar, Typography, useScrollTrigger, IconButton, Menu, MenuItem, ListItemText } from '@mui/material';
 import { useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { ScrollTop } from './ScrollTop';
@@ -90,6 +90,8 @@ export default function NavBar({ invertImg = true }) {
                     }}
                 >
                     <Box
+                        component='a'
+                        href='/'
                         sx={{
                             position: { xs: 'absolute', md: 'static' },
                             left: { xs: '50%', md: 'auto' },
@@ -141,7 +143,7 @@ export default function NavBar({ invertImg = true }) {
                             <Typography variant="h6" className='menu-link' component="div" sx={linkStyle} >
                                 About
                             </Typography>
-                            <KeyboardArrowDown />
+                            <KeyboardArrowDown sx={linkStyle} />
                             <Menu
                                 disableScrollLock
                                 open={programMenuOpen}
@@ -158,6 +160,7 @@ export default function NavBar({ invertImg = true }) {
                                 {[
                                     ['/program', 'Program'],
                                     ['/schedule', 'Schedule'],
+                                    ['/hotel-booking', 'Hotel Booking'],
                                     ['/abstract-submission', 'Abstract Submission']
                                 ].map((item, index) => (
                                     <Link key={index} to={item[0]} style={{ textDecoration: 'none', color: 'black' }}>

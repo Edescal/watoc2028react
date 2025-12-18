@@ -11,8 +11,8 @@ export default function LastStep({ stepName = 'lastStep', onBack = null, onReset
         <>
             <Box sx={{ flex: 1 }} />
             <Stack spacing={3}>
-                <Box className='d-flex justify-content-end px-2 px-sm-4 border-top pt-3'>
-                    <Button type='submit' variant='contained' onClick={handleOnBack} >
+                <Box className='d-flex justify-content-end gap-2 px-2 px-sm-4 border-top pt-3'>
+                    <Button type='submit' variant='outlined' onClick={handleOnBack} >
                         Back
                     </Button>
                     <Button type='submit' variant='contained' onClick={onReset} >

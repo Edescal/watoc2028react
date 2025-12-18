@@ -17,7 +17,7 @@ export default function RenderInput({
     ...props
 }) {
     return (
-        <Box>
+        <Box flex={1}>
             {label && <InputLabel htmlFor={id}>{label}</InputLabel>}
             <Controller
                 name={name}
@@ -27,6 +27,10 @@ export default function RenderInput({
                 render={({ field }) => (
                     <InputComponent
                         {...field}
+                        onBlur={(event) => {
+                            // cuando se quita el focus se trimea el valor
+                            field.onChange(event.currentTarget.value.trim())
+                        }}
                         id={id}
                         fullWidth
                         placeholder={placeholder}
