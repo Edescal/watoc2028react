@@ -1,12 +1,12 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
-import { ScrollTop } from '../components/ScrollTop'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
+import { ScrollTop } from '../../components/ScrollTop'
 import { Box, Card, CardContent, CardMedia, Container, Divider, Fab, Fade, Grid, Paper, Stack, Toolbar, Typography } from '@mui/material'
 import { EnergySavingsLeaf, Flight, Groups2, Hotel, Lens, Room, WifiTethering } from '@mui/icons-material'
-import { HeroSection } from './home/sections/HeroSection'
-import { VenueHeroContent } from './venue/components/VenueHeroContent'
-import GenericCTASection from '../components/GenericCTASection'
+import { VenueHeroContent } from './components/VenueHeroContent'
+import GenericCTASection from '../../components/GenericCTASection'
+import { HeroSection } from '../../components/HeroSection'
 
 const FeatureCard = ({ icon, title, text }) => (
     <Paper elevation={5} sx={{

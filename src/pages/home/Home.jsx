@@ -1,103 +1,79 @@
 import { Box, Button, Card, CardContent, Container, Stack, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 import { ArrowForward } from '@mui/icons-material'
-import WelcomeSection from './home/sections/WelcomeSection'
-import VenueSection from './home/sections/VenueSection'
-import CollaboratorsSection from './home/sections/CollaboratorsSection'
-import NewsletterSection from './home/sections/NewsletterSection'
-import { HeroSection } from './home/sections/HeroSection'
-import { HomeHeroContent } from './home/components/HomeHeroContent'
+import WelcomeSection from './sections/WelcomeSection'
+import VenueSection from './sections/VenueSection'
+import CollaboratorsSection from './sections/CollaboratorsSection'
+import NewsletterSection from './sections/NewsletterSection'
+import { HomeHeroContent } from './components/HomeHeroContent'
+import GenericCTASection from '../../components/GenericCTASection'
+import { HeroSection } from '../../components/HeroSection'
 
 export const MainCTA = () => (
-    <Box
-        component="section"
-        sx={{
-            py: { xs: 6, md: 8 },
-            px: { xs: 2, sm: 3, md: 10, lg: 15 },
-            background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
-            color: 'white',
-            position: 'relative',
-            overflow: 'hidden',
-        }}
-    >
-        <Box
-            sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                opacity: 0.5,
-                backgroundImage: 'url(/field.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        />
+    <GenericCTASection>
+        <Stack spacing={3} alignItems="center" textAlign="center">
+            <Typography variant="h3" fontWeight="bold">
+                Be Part of WATOC 2028
+            </Typography>
+            <Typography variant="h6" sx={{ maxWidth: 600, opacity: 0.95 }}>
+                Join leading researchers from around the world in advancing theoretical and computational chemistry
+            </Typography>
 
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
-            <Stack spacing={3} alignItems="center" textAlign="center">
-                <Typography variant="h3" fontWeight="bold">
-                    Be Part of WATOC 2028
-                </Typography>
-                <Typography variant="h6" sx={{ maxWidth: 600, opacity: 0.95 }}>
-                    Join leading researchers from around the world in advancing theoretical and computational chemistry
-                </Typography>
-
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    spacing={2}
-                    sx={{ mt: 3 }}
+            <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={2}
+                sx={{ mt: 3 }}
+            >
+                <Button
+                    variant="contained"
+                    size="large"
+                    endIcon={<ArrowForward />}
+                    sx={{
+                        bgcolor: 'white',
+                        color: 'primary.main',
+                        px: 4,
+                        py: 1.5,
+                        fontSize: '1.1rem',
+                        textTransform: 'none',
+                        fontWeight: 'bold',
+                        '&:hover': {
+                            bgcolor: 'grey.100',
+                            transform: 'translateY(-2px)',
+                            boxShadow: 4,
+                        },
+                        transition: 'all 0.3s',
+                    }}
                 >
-                    <Button
-                        variant="contained"
-                        size="large"
-                        endIcon={<ArrowForward />}
-                        sx={{
-                            bgcolor: 'white',
-                            color: 'primary.main',
-                            px: 4,
-                            py: 1.5,
-                            fontSize: '1.1rem',
-                            textTransform: 'none',
-                            fontWeight: 'bold',
-                            '&:hover': {
-                                bgcolor: 'grey.100',
-                                transform: 'translateY(-2px)',
-                                boxShadow: 4,
-                            },
-                            transition: 'all 0.3s',
-                        }}
-                    >
-                        Register Now
-                    </Button>
+                    Register Now
+                </Button>
 
-                    <Button
-                        variant="outlined"
-                        size="large"
-                        sx={{
+                <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                        borderColor: 'white',
+                        color: 'white',
+                        px: 4,
+                        py: 1.5,
+                        fontSize: '1.1rem',
+                        textTransform: 'none',
+                        fontWeight: 'bold',
+                        '&:hover': {
                             borderColor: 'white',
-                            color: 'white',
-                            px: 4,
-                            py: 1.5,
-                            fontSize: '1.1rem',
-                            textTransform: 'none',
-                            fontWeight: 'bold',
-                            '&:hover': {
-                                borderColor: 'white',
-                                bgcolor: 'rgba(255,255,255,0.1)',
-                                transform: 'translateY(-2px)',
-                            },
-                            transition: 'all 0.3s',
-                        }}
-                    >
-                        Submit Abstract
-                    </Button>
-                </Stack>
+                            bgcolor: 'rgba(255,255,255,0.1)',
+                            transform: 'translateY(-2px)',
+                        },
+                        transition: 'all 0.3s',
+                    }}
+                >
+                    Submit Abstract
+                </Button>
             </Stack>
-        </Container>
-    </Box>
+        </Stack>
+    </GenericCTASection>
+
 )
 
 const CounterCard = () => {

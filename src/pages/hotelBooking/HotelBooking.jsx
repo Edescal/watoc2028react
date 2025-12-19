@@ -1,12 +1,12 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
+import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 import { Box, Container, Grid, Paper, Typography } from '@mui/material'
-import { HeroSection } from './home/sections/HeroSection'
-import HospitalitySection from './hotelBooking/sections/HospitalitySection'
-import { HotelBookingHeroContent } from './hotelBooking/components/HotelBookingHeroContent'
-import GenericCTASection from '../components/GenericCTASection'
+import HospitalitySection from './sections/HospitalitySection'
+import { HotelBookingHeroContent } from './components/HotelBookingHeroContent'
+import GenericCTASection from '../../components/GenericCTASection'
 import { Flight, Hotel, Room } from '@mui/icons-material'
+import { HeroSection } from '../../components/HeroSection'
 
 
 const LocationItem = ({ icon, title, text }) => (
@@ -40,7 +40,6 @@ const LocationItem = ({ icon, title, text }) => (
         </Box>
     </Box>
 )
-
 
 export default function HotelBooking() {
     return (
