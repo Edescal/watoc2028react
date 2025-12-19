@@ -21,11 +21,11 @@ const CustomDropdownMenu = ({ textBlack = false, children }) => {
                     About
                 </Typography>
                 <KeyboardArrowDown />
-                <div ></div>
             </Box>
-            <MenuList className="dropdown-content">
+            {/* NO USAR OTRO COMPONENTE, SINO SE ROMPE */}
+            <div className="dropdown-content">
                 {children}
-            </MenuList>
+            </div>
         </Box>
     );
 };

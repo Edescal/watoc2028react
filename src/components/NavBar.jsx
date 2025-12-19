@@ -131,6 +131,7 @@ export default function NavBar({ invertImg = true }) {
                         <HomeMenuLink path='/' label='Home' />
                         <HomeMenuLink path='/venue' label='Venue' />
                         <HomeMenuLink path='/young-watoc' label='Young WATOC' />
+
                         <CustomDropdownMenu textBlack={trigger || !invertImg} >
                             {aboutSubmenus.map((item) => (
                                 <MenuItem key={item.id}>
