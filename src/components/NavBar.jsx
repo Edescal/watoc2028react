@@ -133,8 +133,8 @@ export default function NavBar({ invertImg = true }) {
                         <HomeMenuLink path='/young-watoc' label='Young WATOC' />
                         <CustomDropdownMenu textBlack={trigger || !invertImg} >
                             {aboutSubmenus.map((item) => (
-                                <MenuItem>
-                                    <Link key={item.id} to={item.url} style={{ textDecoration: 'none', }}>
+                                <MenuItem key={item.id}>
+                                    <Link to={item.url} style={{ textDecoration: 'none', }}>
                                         <ListItemText sx={{ gap: 3, color: '#383838ff' }}>
                                             {item.label}
                                         </ListItemText>

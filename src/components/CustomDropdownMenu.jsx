@@ -6,7 +6,7 @@ import { KeyboardArrowDown } from "@mui/icons-material";
 const CustomDropdownMenu = ({ textBlack = false, children }) => {
 
     return (
-        <Box class="dropdown">
+        <Box className="dropdown">
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
@@ -23,7 +23,7 @@ const CustomDropdownMenu = ({ textBlack = false, children }) => {
                 <KeyboardArrowDown />
                 <div ></div>
             </Box>
-            <MenuList class="dropdown-content">
+            <MenuList className="dropdown-content">
                 {children}
             </MenuList>
         </Box>

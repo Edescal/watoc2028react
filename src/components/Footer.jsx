@@ -27,7 +27,7 @@ export default function Footer() {
                 pb: 3,
                 backgroundPositionY: 'bottom',
                 position: 'relative',
-                zIndex:-1,
+                zIndex: -1,
             }}
         >
             <Box
@@ -43,7 +43,7 @@ export default function Footer() {
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed',
                     pointerEvents: 'none',
-                    zIndex:-1,
+                    zIndex: -1,
                 }}
             />
             <Container maxWidth="lg">
@@ -93,24 +93,27 @@ export default function Footer() {
                         <Typography variant="subtitle1" fontWeight="bold" mb={2} color="primary.light">
                             Congress
                         </Typography>
-                        <Stack spacing={1}>
+                        <Stack spacing={1} width={{ xs: '50%', md: '100%' }}>
                             {navigation.congress.map((item, index) => (
-                                <MUILink
+                                <Link to={item.href}
                                     key={index}
-                                    href={item.href}
-                                    underline="none"
-                                    sx={{
-                                        color: 'rgba(255,255,255,0.8)',
-                                        fontSize: '0.875rem',
-                                        transition: 'all 0.2s',
-                                        '&:hover': {
-                                            color: 'primary.light',
-                                            pl: 1,
-                                        },
-                                    }}
+                                    target={item.href.startsWith('http') ? "_blank" : undefined}
+                                    rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
                                 >
-                                    {item.label}
-                                </MUILink>
+                                    <Typography
+                                        sx={{
+                                            color: 'rgba(255,255,255,0.8)',
+                                            fontSize: '0.875rem',
+                                            transition: 'all 0.2s',
+                                            '&:hover': {
+                                                color: 'primary.light',
+                                                pl: 1,
+                                            },
+                                        }}
+                                    >
+                                        {item.label}
+                                    </Typography>
+                                </Link>
                             ))}
                         </Stack>
                     </Grid>
@@ -119,24 +122,28 @@ export default function Footer() {
                         <Typography variant="subtitle1" fontWeight="bold" mb={2} color="primary.light">
                             Venue & City
                         </Typography>
-                        <Stack spacing={1}>
+                        <Stack spacing={1} width={{ xs: '50%', md: '100%' }}>
                             {navigation.venue.map((item, index) => (
-                                <MUILink
+                                <Link to={item.href}
                                     key={index}
-                                    href={item.href}
-                                    underline="none"
-                                    sx={{
-                                        color: 'rgba(255,255,255,0.8)',
-                                        fontSize: '0.875rem',
-                                        transition: 'all 0.2s',
-                                        '&:hover': {
-                                            color: 'primary.light',
-                                            pl: 1,
-                                        },
-                                    }}
+                                    target={item.href.startsWith('http') ? "_blank" : undefined}
+                                    rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
                                 >
-                                    {item.label}
-                                </MUILink>
+                                    <Typography
+                                        key={index}
+                                        sx={{
+                                            color: 'rgba(255,255,255,0.8)',
+                                            fontSize: '0.875rem',
+                                            transition: 'all 0.2s',
+                                            '&:hover': {
+                                                color: 'primary.light',
+                                                pl: 1,
+                                            },
+                                        }}
+                                    >
+                                        {item.label}
+                                    </Typography>
+                                </Link>
                             ))}
                         </Stack>
                     </Grid>
