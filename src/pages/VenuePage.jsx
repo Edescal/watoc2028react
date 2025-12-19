@@ -1,10 +1,12 @@
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
-import { Box, Card, CardContent, Container, Grid, Paper, Stack, Typography } from '@mui/material'
-import { EnergySavingsLeaf, Flight, Groups2, Hotel, Room, WifiTethering } from '@mui/icons-material'
-import { VenueHeroContent } from './components/VenueHeroContent'
-import GenericCTASection from '../../components/GenericCTASection'
-import { HeroSection } from '../../components/HeroSection'
+import React from 'react'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import { ScrollTop } from '../components/ScrollTop'
+import { Box, Card, CardContent, CardMedia, Container, Divider, Fab, Fade, Grid, Paper, Stack, Toolbar, Typography } from '@mui/material'
+import { EnergySavingsLeaf, Flight, Groups2, Hotel, Lens, Room, WifiTethering } from '@mui/icons-material'
+import { HeroSection } from './home/sections/HeroSection'
+import { VenueHeroContent } from './venue/components/VenueHeroContent'
+import GenericCTASection from '../components/GenericCTASection'
 
 const FeatureCard = ({ icon, title, text }) => (
     <Paper elevation={5} sx={{
@@ -130,7 +132,7 @@ export default function VenuePage() {
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc={["/congresoEntrada.webp"]}
+                    backgroundImgSrc="/congresoEntrada.webp"
                     height="90vh"
                     enableParticles={true}
                     enableRadialGradient={true}
@@ -154,7 +156,7 @@ export default function VenuePage() {
                                 fontWeight="bold"
                                 sx={{ fontSize: { xs: '1.8rem', md: '2.5rem' } }}
                             >
-                                Modernity & Sustainability
+                                Modernidad y Sustentabilidad
                             </Typography>
                             <Typography
                                 variant="h6"
@@ -171,22 +173,22 @@ export default function VenuePage() {
                                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                                     <FeatureCard
                                         icon={<Groups2 />}
-                                        title='High Capacity'
-                                        text='With a total event area of 10,000 m² and 26 meeting rooms, the venue can accommodate up to 10,000 attendees.'
+                                        title='Gran Capacidad'
+                                        text='Con una superficie de 10,000 m² y 26 salones, puede albergar hasta 10,000 asistentes.'
                                     />
                                 </Grid>
                                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                                     <FeatureCard
                                         icon={<EnergySavingsLeaf />}
-                                        title='LEED Certification'
-                                        text='The first building in Mexico to receive LEED Platinum certification in its category, prioritizing energy efficiency and sustainable design.'
+                                        title='Certificación LEED'
+                                        text='Primer edificio en México con certificación LEED Platino en su categoría, prioritizando la eficiencia energética.'
                                     />
                                 </Grid>
                                 <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                                     <FeatureCard
                                         icon={<WifiTethering />}
-                                        title='Advanced Connectivity'
-                                        text='State-of-the-art fiber-optic infrastructure and high-quality Wi-Fi designed to support thousands of simultaneous attendees.'
+                                        title='Alta Conectividad'
+                                        text='Infraestructura de fibra óptica y Wi-Fi de alta calidad para soportar miles de asistentes simultáneos.'
                                     />
                                 </Grid>
                             </Grid>
@@ -204,26 +206,27 @@ export default function VenuePage() {
                         <Grid container spacing={3}>
                             <Grid size={{ xs: 12, sm: 5, md: 5 }}>
                                 <Typography variant="h4" fontWeight="bold" gutterBottom>
-                                    Strategic Location
+                                    Ubicación privilegiada
                                 </Typography>
                                 <Typography variant="body1" color="text.secondary" mb={4}>
-                                    Located in the heart of Yucatán's Convention District, surrounded by hotels, restaurants, and cultural venues.
+                                    Situado en el corazón del Distrito de Congresos de Yucatán,
+                                    rodeado de hoteles, restaurantes y puntos culturales.
                                 </Typography>
 
                                 <LocationItem
                                     icon={<Room />}
-                                    title='Address'
-                                    text='62 No. 294, between Av. Cupules and Av. Colón, Centro, Mérida, Yucatán, Mexico.'
+                                    title='Dirección'
+                                    text='C-62 #294 entre Av. Cupules y Av. Colón, Centro. Mérida, Yucatán.'
                                 />
                                 <LocationItem
                                     icon={<Hotel />}
-                                    title='Accommodation'
-                                    text='More than 2,000 hotel rooms available within walking distance'
+                                    title='Alojamiento'
+                                    text='Más de 2,000 habitaciones de hotel a pocas calles de distancia.'
                                 />
                                 <LocationItem
                                     icon={<Flight />}
-                                    title='Transportation'
-                                    text='Approximately 20 minutes from Mérida International Airport (MID).'
+                                    title='Transporte'
+                                    text='A solo 20 minutos del Aeropuerto Internacional de Mérida (MID).'
                                 />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 7, md: 7 }}>
@@ -250,28 +253,28 @@ export default function VenuePage() {
                             <ImageStatCard
                                 image="/centro1.jpg"
                                 value="26"
-                                label="Lounges"
+                                label="Salones multifuncionales"
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 5 }}>
                             <ImageStatCard
                                 image="/centro2.jpg"
                                 value="10,000"
-                                label="Capacity of assistants"
+                                label="Asistentes simultáneos"
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 4 }}>
                             <ImageStatCard
                                 image="/centro3.jpg"
                                 value="9,430 m²"
-                                label="Event area"
+                                label="Área para eventos"
                             />
                         </Grid>
                         <Grid size={{ xs: 12, sm: 8 }}>
                             <ImageStatCard
                                 image="/centroconvenciones.webp"
                                 value="50,000 m²"
-                                label="Total construction"
+                                label="Superficie total"
                             />
                         </Grid>
                     </Grid>

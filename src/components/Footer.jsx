@@ -152,24 +152,23 @@ export default function Footer() {
                                     info@watoc2028.org
                                 </Typography>
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <Phone sx={{ fontSize: 18, opacity: 0.7 }} />
                                 <Typography variant="body2" sx={{ fontSize: '0.875rem', opacity: 0.8 }}>
                                     +52 999 xxx xxxx
                                 </Typography>
-                            </Box>
+                            </Box> */}
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
                                 <LocationOn sx={{ fontSize: 18, opacity: 0.7, mt: 0.3 }} />
                                 <Typography variant="body2" sx={{ fontSize: '0.875rem', opacity: 0.8 }}>
-                                    Centro Internacional de Congresos<br />
+                                    Centro de Investigación y de Estudios Avanzados<br />
+                                    Instituto Politécnico Nacional<br />
                                     Mérida, Yucatán
                                 </Typography>
                             </Box>
                         </Stack>
                     </Grid>
                 </Grid>
-
-                <Divider sx={{ my: 4, borderColor: 'rgba(255,255,255,0.1)' }} />
 
                 <Divider sx={{ my: 3, borderColor: 'rgba(255,255,255,0.1)' }} />
 

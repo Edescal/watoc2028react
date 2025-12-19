@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes } from 'react-router'
+import { Routes, useLocation } from 'react-router'
 import { Route } from 'react-router'
 import Login from './pages/Login'
 
@@ -17,6 +17,7 @@ import Contact from './pages/contact/Contact';
 import RegistrationPage from './pages/registration/RegistrationPage';
 import NotFound from './pages/error/NotFound';
 import YoungWatoc from './pages/youngWATOC/YoungWatoc';
+import { useEffect } from 'react';
 
 const darkTheme = createTheme({
 	palette: {
@@ -53,6 +54,19 @@ const globalTheme = createTheme({
 				},
 			},
 		},
+		// Mui:{
+		// 	styleOverrides: {
+		// 		root: {
+		// 			'& fieldset': {
+		// 				borderColor: '#a0a4aeff',
+		// 			},
+		// 			'& .MuiOutlinedInput-root': {
+		// 				borderRadius: 15,
+		// 				backgroundColor: '#f5f8ffff', // azul muy suave
+		// 			},
+		// 		},
+		// 	},
+		// },
 		MuiCssBaseline: {
 			styleOverrides: {
 				body: {
@@ -82,6 +96,16 @@ const globalTheme = createTheme({
 })
 
 function App() {
+	const { pathname } = useLocation()
+
+	useEffect(() => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth', // quítalo si no quieres animación
+		})
+	}, [pathname])
+
 	return (
 		<>
 			<ThemeProvider theme={globalTheme}>
@@ -108,8 +132,8 @@ function App() {
 					</>} />
 					<Route path='/register' element={<>
 						{/* <ThemeProvider theme={darkTheme}> */}
-							{/* <CssBaseline /> */}
-							<Register />
+						{/* <CssBaseline /> */}
+						<Register />
 						{/* </ThemeProvider> */}
 					</>} />
 				</Routes>

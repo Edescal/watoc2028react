@@ -1,12 +1,12 @@
 import React from 'react'
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import { Box, Container, Grid, Paper, Typography } from '@mui/material'
-import HospitalitySection from './sections/HospitalitySection'
-import { HotelBookingHeroContent } from './components/HotelBookingHeroContent'
-import GenericCTASection from '../../components/GenericCTASection'
+import { HeroSection } from './home/sections/HeroSection'
+import HospitalitySection from './hotelBooking/sections/HospitalitySection'
+import { HotelBookingHeroContent } from './hotelBooking/components/HotelBookingHeroContent'
+import GenericCTASection from '../components/GenericCTASection'
 import { Flight, Hotel, Room } from '@mui/icons-material'
-import { HeroSection } from '../../components/HeroSection'
 
 
 const LocationItem = ({ icon, title, text }) => (
@@ -41,13 +41,14 @@ const LocationItem = ({ icon, title, text }) => (
     </Box>
 )
 
+
 export default function HotelBooking() {
     return (
         <>
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc={['/hotel.webp']}
+                    backgroundImgSrc='/hotel.webp'
                     enableRadialGradient
                     height='70dvh'
                     enableParticles={true}
@@ -69,26 +70,27 @@ export default function HotelBooking() {
                         <Grid container spacing={3}>
                             <Grid size={{ xs: 12, sm: 5, md: 5 }}>
                                 <Typography variant="h4" fontWeight="bold" gutterBottom>
-                                    Strategic Location
+                                    Ubicación privilegiada
                                 </Typography>
                                 <Typography variant="body1" color="text.secondary" mb={4}>
-                                    Located in the heart of Yucatán's Convention District, surrounded by hotels, restaurants, and cultural venues.
+                                    Situado en el corazón del Distrito de Congresos de Yucatán,
+                                    rodeado de hoteles, restaurantes y puntos culturales.
                                 </Typography>
 
                                 <LocationItem
                                     icon={<Room />}
-                                    title='Address'
-                                    text='62 No. 294, between Av. Cupules and Av. Colón, Centro, Mérida, Yucatán, Mexico.'
+                                    title='Dirección'
+                                    text='C-62 #294 entre Av. Cupules y Av. Colón, Centro. Mérida, Yucatán.'
                                 />
                                 <LocationItem
                                     icon={<Hotel />}
-                                    title='Accommodation'
-                                    text='More than 2,000 hotel rooms available within walking distance'
+                                    title='Alojamiento'
+                                    text='Más de 2,000 habitaciones de hotel a pocas calles de distancia.'
                                 />
                                 <LocationItem
                                     icon={<Flight />}
-                                    title='Transportation'
-                                    text='Approximately 20 minutes from Mérida International Airport (MID).'
+                                    title='Transporte'
+                                    text='A solo 20 minutos del Aeropuerto Internacional de Mérida (MID).'
                                 />
                             </Grid>
                             <Grid size={{ xs: 12, sm: 7, md: 7 }}>

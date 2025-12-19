@@ -146,8 +146,9 @@ export const HomeHeroContent = () => {
                         fontSize: { xs: '1rem', sm: '1.2rem', md: '1.4rem' },
                         maxWidth: 700,
                         lineHeight: 1.6,
-                        fontWeight: 300,
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                        fontWeight: 700,
+                        letterSpacing: '0.4px',
+                        textShadow: '0 2px 10px rgba(0,0,0,0.6)',
                     }}
                 >
                     14th Triennial Congress of the World Association of Theoretical and
@@ -159,7 +160,8 @@ export const HomeHeroContent = () => {
                         fontSize: { xs: '1rem', sm: '1.2rem', md: '1.3rem' },
                         maxWidth: 700,
                         lineHeight: 1.6,
-                        fontWeight: 300,
+                        fontWeight: 700,
+                        letterSpacing: '0.4px',
                         textShadow: '0 2px 10px rgba(0,0,0,0.3)',
                     }}
                 >

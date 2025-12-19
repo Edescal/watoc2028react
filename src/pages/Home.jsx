@@ -1,33 +1,55 @@
 import { Box, Button, Card, CardContent, Container, Stack, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import { ArrowForward } from '@mui/icons-material'
-import WelcomeSection from './sections/WelcomeSection'
-import VenueSection from './sections/VenueSection'
-import CollaboratorsSection from './sections/CollaboratorsSection'
-import NewsletterSection from './sections/NewsletterSection'
-import { HomeHeroContent } from './components/HomeHeroContent'
-import GenericCTASection from '../../components/GenericCTASection'
-import { HeroSection } from '../../components/HeroSection'
-import { Link } from 'react-router'
+import WelcomeSection from './home/sections/WelcomeSection'
+import VenueSection from './home/sections/VenueSection'
+import CollaboratorsSection from './home/sections/CollaboratorsSection'
+import NewsletterSection from './home/sections/NewsletterSection'
+import { HeroSection } from './home/sections/HeroSection'
+import { HomeHeroContent } from './home/components/HomeHeroContent'
 
 export const MainCTA = () => (
-    <GenericCTASection>
-        <Stack spacing={3} alignItems="center" textAlign="center">
-            <Typography variant="h3" fontWeight="bold">
-                Be Part of WATOC 2028
-            </Typography>
-            <Typography variant="h6" sx={{ maxWidth: 600, opacity: 0.95 }}>
-                Join leading researchers from around the world in advancing theoretical and computational chemistry
-            </Typography>
+    <Box
+        component="section"
+        sx={{
+            py: { xs: 6, md: 8 },
+            px: { xs: 2, sm: 3, md: 10, lg: 15 },
+            background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
+            color: 'white',
+            position: 'relative',
+            overflow: 'hidden',
+        }}
+    >
+        <Box
+            sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                opacity: 0.5,
+                backgroundImage: 'url(/field.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        />
 
-            <Stack
-                direction={{ xs: 'column', sm: 'row' }}
-                spacing={2}
-                sx={{ mt: 3 }}
-            >
-                <Link to='/register'>
+        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
+            <Stack spacing={3} alignItems="center" textAlign="center">
+                <Typography variant="h3" fontWeight="bold">
+                    Be Part of WATOC 2028
+                </Typography>
+                <Typography variant="h6" sx={{ maxWidth: 600, opacity: 0.95 }}>
+                    Join leading researchers from around the world in advancing theoretical and computational chemistry
+                </Typography>
+
+                <Stack
+                    direction={{ xs: 'column', sm: 'row' }}
+                    spacing={2}
+                    sx={{ mt: 3 }}
+                >
                     <Button
                         variant="contained"
                         size="large"
@@ -50,8 +72,7 @@ export const MainCTA = () => (
                     >
                         Register Now
                     </Button>
-                </Link>
-                <Link to='/abstract-submission'>
+
                     <Button
                         variant="outlined"
                         size="large"
@@ -73,11 +94,10 @@ export const MainCTA = () => (
                     >
                         Submit Abstract
                     </Button>
-                </Link>
+                </Stack>
             </Stack>
-        </Stack>
-    </GenericCTASection>
-
+        </Container>
+    </Box>
 )
 
 const CounterCard = () => {
@@ -150,14 +170,13 @@ const CounterCard = () => {
         </Box>
     )
 }
-
 export default function Home() {
     return (
         <>
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc={["/merida.webp", "/merida.jpg"]}
+                    backgroundImgSrc="/field.png"
                     height="95vh"
                     enableParticles={true}
                     enableRadialGradient={true}
@@ -168,7 +187,6 @@ export default function Home() {
                 </HeroSection>
 
                 <WelcomeSection />
-                <MainCTA />
                 <Box component='section' justifyContent='center' textAlign='center' sx={{
                     px: { xs: 1, sm: 3, md: 10, lg: 15 },
                     py: { xs: 2, md: 3 },
@@ -178,8 +196,9 @@ export default function Home() {
                     </Typography>
                     <CounterCard />
                 </Box>
+                <MainCTA />
                 <VenueSection />
-                {/* <NewsletterSection /> */}
+                <NewsletterSection />
                 <CollaboratorsSection />
             </Box>
             <Footer />
