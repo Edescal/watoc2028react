@@ -1,9 +1,70 @@
-import { ArrowRight, ArrowRightSharp, KeyboardArrowDown, Menu as MenuIcon } from '@mui/icons-material';
-import { AppBar, Box, Toolbar, Typography, useScrollTrigger, IconButton, Menu, MenuItem, ListItemText, ListItemIcon, ClickAwayListener, MenuList, Divider } from '@mui/material';
-import { useMemo, useRef, useState } from 'react';
+import { ArrowRight, ArrowRightSharp, ExpandLess, ExpandMore, KeyboardArrowDown, Menu as MenuIcon } from '@mui/icons-material';
+import { AppBar, Box, Toolbar, Typography, useScrollTrigger, IconButton, Menu, MenuItem, ListItemText, ListItemIcon, ClickAwayListener, MenuList, Divider, ListItemButton, Collapse, List } from '@mui/material';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { ScrollTop } from './ScrollTop';
 import CustomDropdownMenu from './CustomDropdownMenu';
+
+const MobileNavMenu = ({ open, anchorEl, handleClose, aboutSubmenus }) => {
+    const [submenuOpen, setSubmenuOpen] = useState(false)
+
+    const handleClick = () => {
+        setSubmenuOpen(!submenuOpen);
+    };
+
+    return (<Menu
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        slotProps={{
+            list: {
+                'aria-labelledby': 'basic-button',
+            },
+        }}
+    >
+        <MenuList dense sx={{
+            minWidth: 190,
+        }}>
+            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem onClick={handleClose}>
+                    <ListItemText primary='Home' />
+                </MenuItem>
+            </Link>
+            <Link to="/venue" style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem onClick={handleClose}>
+                    <ListItemText primary='Venue' />
+                </MenuItem>
+            </Link>
+            <Link to="/young-watoc" style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem onClick={handleClose}>
+                    <ListItemText primary='Young WATOC' />
+                </MenuItem>
+            </Link>
+            <ListItemButton onClick={handleClick}>
+                <ListItemText primary='About' />
+                {submenuOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={submenuOpen} timeout={400} unmountOnExit>
+                <List dense component="div" disablePadding>
+                    {aboutSubmenus.map((item) => (
+                        <Link key={item.id} to={item.url} style={{ textDecoration: 'none', color: 'black' }}>
+                            <ListItemButton onClick={handleClose} sx={{ pl: 4 }}>
+                                <ListItemText primary={item.label} />
+                            </ListItemButton>
+                        </Link>
+                    ))}
+                </List>
+            </Collapse>
+            <Link to="/register" style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem onClick={handleClose}>
+                    <ListItemText primary='Registration' />
+                </MenuItem>
+            </Link>
+        </MenuList>
+    </Menu>)
+}
 
 export default function NavBar({ invertImg = true }) {
     const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState(null);
@@ -134,13 +195,13 @@ export default function NavBar({ invertImg = true }) {
 
                         <CustomDropdownMenu textBlack={trigger || !invertImg} >
                             {aboutSubmenus.map((item) => (
-                                <MenuItem key={item.id}>
-                                    <Link to={item.url} style={{ textDecoration: 'none', }}>
+                                <Link key={item.id} to={item.url} style={{ textDecoration: 'none', }}>
+                                    <MenuItem>
                                         <ListItemText sx={{ gap: 3, color: '#383838ff' }}>
                                             {item.label}
                                         </ListItemText>
-                                    </Link>
-                                </MenuItem>
+                                    </MenuItem>
+                                </Link>
                             ))}
                         </CustomDropdownMenu>
                         {/* <HomeMenuLink path='/contact' label='Contact' /> */}
@@ -165,60 +226,7 @@ export default function NavBar({ invertImg = true }) {
                     </Box>
                 </Toolbar>
             </AppBar>
-            <Menu
-                open={open}
-                anchorEl={mobileMenuAnchorEl}
-                onClose={handleClose}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-                slotProps={{
-                    list: {
-                        'aria-labelledby': 'basic-button',
-                    },
-                }}
-            >
-                <MenuList dense>
-                    <MenuItem onClick={handleClose}>
-                        <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-                            Home
-                        </Link>
-                    </MenuItem>
-
-                    <MenuItem onClick={handleClose}>
-                        <Link to="/venue" style={{ textDecoration: 'none', color: 'black' }}>
-                            Venue
-                        </Link>
-                    </MenuItem>
-
-                    <MenuItem onClick={handleClose}>
-                        <Link to="/young-watoc" style={{ textDecoration: 'none', color: 'black' }}>
-                            Young WATOC
-                        </Link>
-                    </MenuItem>
-
-                    <Divider />
-                    {aboutSubmenus.map((item) => (
-                        <MenuItem key={item.id} onClick={handleClose}>
-                            <Link to={item.url} style={{ textDecoration: 'none', color: 'black' }}>
-                                {item.label}
-                            </Link>
-                        </MenuItem>
-                    ))}
-                    <Divider />
-
-                    {/* <MenuItem onClick={handleClose}>
-                        <Link to="/contact" style={{ textDecoration: 'none', color: 'black' }}>
-                            Contact
-                        </Link>
-                    </MenuItem> */}
-
-                    <MenuItem onClick={handleClose}>
-                        <Link to="/register" style={{ textDecoration: 'none', color: 'black' }}>
-                            Registration
-                        </Link>
-                    </MenuItem>
-                </MenuList>
-            </Menu>
+            <MobileNavMenu open={open} anchorEl={mobileMenuAnchorEl} handleClose={handleClose} aboutSubmenus={aboutSubmenus} />
             <ScrollTop ref={scrollRef} />
         </>
     )

@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, Divider, List, Container } from '@mui/material'
+import { Box, Stack, Typography, Divider, List, Container, Paper } from '@mui/material'
 
 export default function AbstractsSection() {
     return (
@@ -30,7 +30,7 @@ export default function AbstractsSection() {
                                 fontSize: { xs: '2rem', md: '2.5rem' },
                             }}
                         >
-                            Abstracts
+                            Abstract Submission
                         </Typography>
                         <Box
                             sx={{
@@ -43,16 +43,37 @@ export default function AbstractsSection() {
                         />
                     </Box>
 
+                    <Paper
+                        elevation={5}
+                        sx={{
+                            maxWidth: 760,
+                            mx: 'auto',
+                            mt: 4,
+                            mb: 6,
+                            px: 3,
+                            py: 2,
+                            borderLeft: '4px solid',
+                            borderColor: 'primary.main',
+                            backgroundColor: 'rgba(25, 118, 210, 0.04)',
+                            borderRadius: 1,
+                            transition: '0.3s ease',
+                            '&:hover': {
+                                transform: 'translateY(-10px)'
+                            }
+                        }}
+                    >
+                        <Typography fontWeight={600} gutterBottom>
+                            Important Notice on Abstract Submission
+                        </Typography>
+                        <Typography variant="body2" sx={{ lineHeight: 1.7 }}>
+                            Abstract submission for WATOC 2028 is available only to registered participants.
+                            After logging in, participants may access the abstract submission portal.
+                        </Typography>
+                    </Paper>
+
+
                     <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-                        <Stack spacing={4} textAlign="center" alignItems="center">
-                            <Typography variant="body2" color="text.secondary" sx={{
-                                maxWidth: 760,
-                            }}>
-                                Due to the expected high number of submitted abstracts, the review
-                                process will be conducted in phases. Participants selected for oral
-                                communications will be notified by email once the evaluation process
-                                has concluded.
-                            </Typography>
+                        <Stack spacing={4} textAlign="justify" alignItems="center">
                             <Typography
                                 sx={{
                                     maxWidth: 760,
@@ -69,42 +90,40 @@ export default function AbstractsSection() {
                         </Stack>
                     </Container>
 
-                    <Box sx={{ maxWidth: 900, mx: 'auto', px: { xs: 2, md: 0 }, py: 8 }}>
-                        <Stack spacing={5}>
-
-
-                            <Stack spacing={1.5}>
-                                <Typography variant="h6" fontWeight={600}>
-                                    Important Deadlines
-                                </Typography>
-
-                                <Typography>
-                                    <strong>Poster abstract submission deadline:</strong> 1 May 2028
-                                </Typography>
-
-                                <Typography>
-                                    <strong>Oral communication abstract submission deadline:</strong>{' '}
-                                    15 March 2028
-                                </Typography>
-                            </Stack>
-
+                    <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1, py: 8, justifyContent: 'center', display: 'flex' }}>
+                        <Stack spacing={4} textAlign="justify">
                             <Stack spacing={2}>
-                                <Typography variant="h6" fontWeight={600}>
+                                <Typography variant="h6" fontWeight={600} >
                                     Call for Abstracts
                                 </Typography>
 
-                                <Typography>
+                                <Typography sx={{
+                                    maxWidth: 760,
+                                    fontSize: { xs: '1rem', md: '1.15rem' },
+                                    opacity: 0.95,
+                                    lineHeight: 1.7,
+                                }}>
                                     Researchers from all areas of theoretical and computational chemistry
                                     are invited to submit abstracts for oral communications and poster
                                     presentations at WATOC 2028.
                                 </Typography>
 
-                                <Typography>
+                                <Typography sx={{
+                                    maxWidth: 760,
+                                    fontSize: { xs: '1rem', md: '1.15rem' },
+                                    opacity: 0.95,
+                                    lineHeight: 1.7,
+                                }}>
                                     This is a unique opportunity to present your latest research to a
                                     global audience and to engage with experts and peers in the field.
                                 </Typography>
 
-                                <Typography>
+                                <Typography sx={{
+                                    maxWidth: 760,
+                                    fontSize: { xs: '1rem', md: '1.15rem' },
+                                    opacity: 0.95,
+                                    lineHeight: 1.7,
+                                }}>
                                     A total of <strong>150 oral communication slots</strong> are
                                     available. Submissions will be evaluated by members of the Local
                                     Scientific Committee and the International Advisory Board.
@@ -116,19 +135,23 @@ export default function AbstractsSection() {
                                     Abstract Submission Process
                                 </Typography>
 
-                                <Typography>
+                                <Typography sx={{
+                                    maxWidth: 760,
+                                    fontSize: { xs: '1rem', md: '1.15rem' },
+                                    opacity: 0.95,
+                                    lineHeight: 1.7,
+                                }}>
                                     Prior registration for WATOC 2028 is required to submit an abstract.
                                     Upon registration, participants will receive a personal link to the
                                     abstract submission portal.
                                 </Typography>
 
-                                <Typography>
-                                    If you are registered and cannot locate your submission link, please
-                                    contact{' '}
-                                    <strong>watoc@gyro.no</strong> to request that it be resent.
-                                </Typography>
-
-                                <Typography>
+                                <Typography sx={{
+                                    maxWidth: 760,
+                                    fontSize: { xs: '1rem', md: '1.15rem' },
+                                    opacity: 0.95,
+                                    lineHeight: 1.7,
+                                }}>
                                     Each participant may submit <strong>one abstract only</strong>.
                                 </Typography>
                             </Stack>
@@ -138,44 +161,106 @@ export default function AbstractsSection() {
                                     Abstract Submission Guidelines
                                 </Typography>
 
-                                <Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
                                     Abstracts must be written in plain text format. Figures, tables, and
-                                    images are not permitted.
+                                    images will not be permitted.
                                 </Typography>
 
-                                <Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
                                     <strong>Title:</strong> Maximum of 10 words.
                                 </Typography>
 
-                                <Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
                                     <strong>Abstract text:</strong> Maximum of 350 words, including
                                     references.
                                 </Typography>
 
-                                <Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
                                     The abstract should consist of a single text block. A short
                                     reference section may be included at the end.
                                 </Typography>
                             </Stack>
 
-                            <Stack spacing={2}>
+                            <Stack spacing={2} >
                                 <Typography variant="h6" fontWeight={600}>
                                     Presentation Types
                                 </Typography>
 
-                                <Typography>• Oral Presentation</Typography>
-                                <Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
+                                    • Oral Presentation</Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
                                     • Oral Presentation (defaulting to poster)
                                 </Typography>
-                                <Typography>• Poster Presentation</Typography>
-                                <Typography>• Young WATOC Oral Presentation</Typography>
-                                <Typography>
-                                    • Young WATOC Oral Presentation (defaulting to poster)
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
+                                    • Poster Presentation
                                 </Typography>
-
-                                <Typography variant="body2" color="text.secondary">
-                                    Young WATOC presentations are available only to participants who
-                                    defended their PhD thesis in 2020 or later.
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
+                                    • Young WATOC Oral Presentation</Typography>
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >
+                                    • Young WATOC Oral Presentation (defaulting to poster)
                                 </Typography>
                             </Stack>
 
@@ -184,27 +269,44 @@ export default function AbstractsSection() {
                                     Author & Affiliation Information
                                 </Typography>
 
-                                <Typography>
-                                    The submitting author’s name will be displayed as entered during
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >                                    The submitting author’s name will be displayed as entered during
                                     registration.
                                 </Typography>
 
-                                <Typography>
-                                    Multiple affiliations may be assigned using numeric references (for
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >                                    Multiple affiliations may be assigned using numeric references (for
                                     example, “1,3”).
                                 </Typography>
 
-                                <Typography>
-                                    Co-authors may be added, and the presenting author must be clearly
+                                <Typography
+                                    sx={{
+                                        maxWidth: 760,
+                                        fontSize: { xs: '1rem', md: '1.15rem' },
+                                        opacity: 0.95,
+                                        lineHeight: 1.7,
+                                    }}
+                                >                                    Co-authors may be added, and the presenting author must be clearly
                                     indicated. The presenting author will be highlighted in the book of
                                     abstracts.
                                 </Typography>
                             </Stack>
                         </Stack>
-                    </Box>
+                    </Container>
                 </Container>
             </Box>
-
         </>
     )
 }

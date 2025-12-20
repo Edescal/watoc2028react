@@ -99,6 +99,8 @@ function App() {
 	const { pathname } = useLocation()
 
 	useEffect(() => {
+		console.log('MIERDAAA');
+		
 		window.scrollTo({
 			top: 0,
 			left: 0,

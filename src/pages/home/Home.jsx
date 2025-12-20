@@ -157,7 +157,6 @@ export default function Home() {
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc={["/merida.webp", "/merida.jpg"]}
                     height="95vh"
                     enableParticles={true}
                     enableRadialGradient={true}

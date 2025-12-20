@@ -14,7 +14,6 @@ export default function Contact() {
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc='/field.png'
                     enableParticles
                 >
                     <GenericHeroContent />

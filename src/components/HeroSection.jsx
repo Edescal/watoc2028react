@@ -40,7 +40,7 @@ const FloatingParticles = memo(({ count = 20, color = 'rgba(255,255,255,0.3)' })
 ))
 
 export const HeroSection = ({
-    backgroundImgSrc = ['/field.png'],
+    backgroundImgSrc = ["/merida.webp", "/merida.jpg", "/hotel.webp", "/congresoEntrada.webp"],
     height = '70vh',
     disableLinearGradient = false,
     enableParticles = false,

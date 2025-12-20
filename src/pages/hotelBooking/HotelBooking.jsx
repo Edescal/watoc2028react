@@ -47,7 +47,6 @@ export default function HotelBooking() {
             <NavBar />
             <Box component='main'>
                 <HeroSection
-                    backgroundImgSrc={['/hotel.webp']}
                     enableRadialGradient
                     height='70dvh'
                     enableParticles={true}
