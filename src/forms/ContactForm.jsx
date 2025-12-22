@@ -1,4 +1,4 @@
-import { Button, TextField, Grid, MenuItem, Typography, Stack, Divider, Box, InputAdornment, FormLabel, Alert, Snackbar, Fade, Collapse, IconButton, AlertTitle, FormControl } from '@mui/material'
+import { Button, TextField, Grid, MenuItem, Typography, Stack, Divider, Box, InputAdornment, FormLabel, Alert, Snackbar, Fade, Collapse, IconButton, AlertTitle, FormControl, useMediaQuery, useTheme } from '@mui/material'
 import { Controller, useForm } from 'react-hook-form'
 import { Close, ErrorOutline, MailOutline, Send } from '@mui/icons-material'
 import CustomTextField from '../components/CustomTextField'
@@ -48,6 +48,8 @@ function RenderControlledInput({
 }
 
 export default function ContactForm() {
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
     const { control, handleSubmit, reset, setError, register, setValue, clearErrors, formState: { errors, isSubmitSuccessful, isSubmitting } } = useForm()
     const api = useAPI()
 
@@ -300,9 +302,10 @@ export default function ContactForm() {
                                 minRows={4}
                             />
                         </Grid>
-                        <Grid size={12} >
+                        <Grid size={12} sx={{ display: 'flex', justifyContent: 'center' }} >
                             <FormControl>
                                 <HCaptcha
+                                    size={isMobile ? 'compact' : 'normal'}
                                     sitekey="ad963da0-1c32-45a2-a4ae-409600422f34"
                                     onVerify={(token) => {
                                         setValue('captcha', token, { shouldValidate: true })
