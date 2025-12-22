@@ -23,21 +23,21 @@ export default function Contact() {
                     component="section"
                     sx={{
                         py: { xs: 6, md: 8 },
-                        px: { xs: 2, sm: 3 },
+                        px: { xs: 0, sm: 2 },
                         bgcolor: 'grey.50',
                         borderBottom: '1px solid',
                         borderColor: 'divider',
                     }}
                 >
-                    <Container maxWidth="lg" sx={{display: 'flex', justifyContent: 'center'}}>
+                    <Container maxWidth="xl" sx={{display: 'flex', justifyContent: 'center'}}>
                         <Grow in={true} timeout={700}>
                             <Paper elevation={5} sx={{
                                 borderTop: 12,
                                 borderColor: '#6a45ffff',
                                 padding: 4,
-                                zIndex: 1000,
                                 maxWidth: 700,
-                                minWidth: 380,
+                                width: '100%',
+                                minWidth: 300,
                             }}>
                                 <ContactForm />
                             </Paper>

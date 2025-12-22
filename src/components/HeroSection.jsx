@@ -1,5 +1,9 @@
 import { Box, Container, Fade, Toolbar } from '@mui/material';
 import { useState, useEffect, memo } from 'react';
+import meridaWebp from './../assets/merida.webp'
+import meridaJpg from './../assets/merida.jpg'
+import hotel from './../assets/hotel.webp'
+import congresoEntrada from './../assets/congresoEntrada.webp'
 
 const FloatingParticles = memo(({ count = 20, color = 'rgba(255,255,255,0.3)' }) => (
     <Box
@@ -40,7 +44,7 @@ const FloatingParticles = memo(({ count = 20, color = 'rgba(255,255,255,0.3)' })
 ))
 
 export const HeroSection = ({
-    backgroundImgSrc = ["/merida.webp", "/merida.jpg", "/hotel.webp", "/congresoEntrada.webp"],
+    backgroundImgSrc = [meridaWebp, meridaJpg, hotel, congresoEntrada],
     height = '70vh',
     disableLinearGradient = false,
     enableParticles = false,
