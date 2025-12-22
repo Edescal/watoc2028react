@@ -19,6 +19,7 @@ import NotFound from './pages/error/NotFound';
 import YoungWatoc from './pages/youngWATOC/YoungWatoc';
 import { useEffect } from 'react';
 import globalTheme from './themes/Themes';
+import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
 
 function App() {
 	const { pathname } = useLocation()
@@ -46,13 +47,13 @@ function App() {
 					<Route path='/visa' element={<VisaRequirements />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/register/account' element={<RegistrationPage />} />
+					{/* <Route path='/privacy-policy' element={<PrivacyPolicy />} /> */}
 
 					<Route path='/test' element={<Test />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
 				</Routes>
 			</ThemeProvider>
-
 		</>
 	)
 }

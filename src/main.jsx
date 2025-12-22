@@ -5,22 +5,22 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router'
 import { APIProvider } from './contexts/APIContext'
 
-async function enableMocking() {
-  if (!import.meta.env.DEV) return;
+// async function enableMocking() {
+//   if (!import.meta.env.DEV) return;
 
-  const { worker } = await import('./mocks/browser');
-  return worker.start();
-}
+//   const { worker } = await import('./mocks/browser');
+//   return worker.start();
+// }
 
-enableMocking()
+// enableMocking()
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
+  <StrictMode>
     <APIProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </APIProvider>
-  // </StrictMode>,
+  </StrictMode>,
 )
 

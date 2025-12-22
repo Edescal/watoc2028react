@@ -190,6 +190,12 @@ export default function Footer() {
                         © 2025 WATOC 2028. All rights reserved.
                     </Typography>
 
+                    {/* <Link to='/privacy-policy'>
+                        <Typography variant="caption">
+                            Privacy Policy.
+                        </Typography>
+                    </Link> */}
+
                     <Typography variant="caption" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                         Powered by
                         <Link to='https://www.cinvestav.mx/'>
