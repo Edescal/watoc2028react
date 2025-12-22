@@ -1,4 +1,4 @@
-import { Box, Fade, Grow, Paper, Slide, Toolbar, Typography } from '@mui/material'
+import { Box, Container, Fade, Grow, Paper, Slide, Toolbar, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react'
 import ContactForm from '../../forms/ContactForm'
 import NavBar from '../../components/NavBar'
@@ -19,26 +19,31 @@ export default function Contact() {
                     <GenericHeroContent />
                 </HeroSection>
 
-                <TitleSection />
-                <GenericCTASection>
-                    <Grow in={true} timeout={700}>
-                        <Paper elevation={5} sx={{
-                            borderTop: 12,
-                            borderColor: '#6a45ffff',
-                            padding: 4,
-                            zIndex: 1000,
-                            maxWidth: 600,
-                        }}>
-                            <Typography
-                                variant='h3'
-                                marginBottom={5}
-                            >
-                                Información de contacto
-                            </Typography>
-                            <ContactForm />
-                        </Paper>
-                    </Grow>
-                </GenericCTASection>
+                <Box
+                    component="section"
+                    sx={{
+                        py: { xs: 6, md: 8 },
+                        px: { xs: 2, sm: 3 },
+                        bgcolor: 'grey.50',
+                        borderBottom: '1px solid',
+                        borderColor: 'divider',
+                    }}
+                >
+                    <Container maxWidth="lg" sx={{display: 'flex', justifyContent: 'center'}}>
+                        <Grow in={true} timeout={700}>
+                            <Paper elevation={5} sx={{
+                                borderTop: 12,
+                                borderColor: '#6a45ffff',
+                                padding: 4,
+                                zIndex: 1000,
+                                maxWidth: 700,
+                                minWidth: 380,
+                            }}>
+                                <ContactForm />
+                            </Paper>
+                        </Grow>
+                    </Container>
+                </Box>
             </Box>
             <Footer />
         </>

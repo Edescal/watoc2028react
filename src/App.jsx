@@ -18,89 +18,12 @@ import RegistrationPage from './pages/registration/RegistrationPage';
 import NotFound from './pages/error/NotFound';
 import YoungWatoc from './pages/youngWATOC/YoungWatoc';
 import { useEffect } from 'react';
-
-const darkTheme = createTheme({
-	palette: {
-		mode: 'dark',
-	},
-});
-
-const globalTheme = createTheme({
-	palette: {
-		primary: {
-			light: '#757ce8',
-			main: '#3f50b5',
-			dark: '#002884',
-			contrastText: '#fff',
-		},
-		secondary: {
-			light: '#ff7961',
-			main: '#f44336',
-			dark: '#ba000d',
-			contrastText: '#000',
-		},
-	},
-	components: {
-		MuiTextField: {
-			styleOverrides: {
-				root: {
-					'& fieldset': {
-						borderColor: '#a0a4aeff',
-					},
-					'& .MuiOutlinedInput-root': {
-						borderRadius: 15,
-						backgroundColor: '#f5f8ffff', // azul muy suave
-					},
-				},
-			},
-		},
-		// Mui:{
-		// 	styleOverrides: {
-		// 		root: {
-		// 			'& fieldset': {
-		// 				borderColor: '#a0a4aeff',
-		// 			},
-		// 			'& .MuiOutlinedInput-root': {
-		// 				borderRadius: 15,
-		// 				backgroundColor: '#f5f8ffff', // azul muy suave
-		// 			},
-		// 		},
-		// 	},
-		// },
-		MuiCssBaseline: {
-			styleOverrides: {
-				body: {
-					scrollbarColor: '#b6b6b6ff transparent', // Firefox
-					scrollbarWidth: 'thin',
-
-					'&::-webkit-scrollbar': {
-						width: 8,
-						height: 8,
-					},
-					'&::-webkit-scrollbar-track': {
-						background: 'transparent',
-					},
-					'&::-webkit-scrollbar-thumb': {
-						backgroundColor: '#6b6b6b',
-						borderRadius: 8,
-						border: '2px solid transparent',
-						backgroundClip: 'content-box',
-					},
-					'&::-webkit-scrollbar-thumb:hover': {
-						backgroundColor: '#555',
-					},
-				},
-			},
-		},
-	},
-})
+import globalTheme from './themes/Themes';
 
 function App() {
 	const { pathname } = useLocation()
 
 	useEffect(() => {
-		console.log('MIERDAAA');
-		
 		window.scrollTo({
 			top: 0,
 			left: 0,
@@ -124,20 +47,9 @@ function App() {
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/register/account' element={<RegistrationPage />} />
 
-
 					<Route path='/test' element={<Test />} />
-					<Route path='/login' element={<>
-						<ThemeProvider theme={darkTheme}>
-							<CssBaseline />
-							<Login />
-						</ThemeProvider>
-					</>} />
-					<Route path='/register' element={<>
-						{/* <ThemeProvider theme={darkTheme}> */}
-						{/* <CssBaseline /> */}
-						<Register />
-						{/* </ThemeProvider> */}
-					</>} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/register' element={<Register />} />
 				</Routes>
 			</ThemeProvider>
 

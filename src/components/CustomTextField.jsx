@@ -1,8 +1,8 @@
-import { Box, TextField, Typography } from '@mui/material'
+import { ErrorOutline } from '@mui/icons-material'
+import { Box, FormHelperText, InputAdornment, TextField, Typography } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 
-export default function CustomTextField({ value, onChange, maxLenght = 64, multiline=false, error = false, helperText = null, ...props }) {
-    const [height, setHeight] = useState(0)
+export default function CustomTextField({ value, onChange, maxLenght = 64, hideLengthLabel = false, multiline = false, error = false, helperText = null, ...props }) {
     const textFieldRef = useRef()
 
     const handleOnChange = (evt) => {
@@ -19,45 +19,47 @@ export default function CustomTextField({ value, onChange, maxLenght = 64, multi
                 : 'text.secondary'
     )
 
-    const helperTextHeight = error ? 25+8 : 3
-
-    const calculateHeight = () => {
-        if (textFieldRef.current) {
-            const rows = Math.floor(textFieldRef.current.scrollHeight );
-            setHeight(rows * lineHeight);
-        }
-    }
-
-    useEffect(()=>{
-        calculateHeight()
-    }, [value, multiline])
-
     return (
-        <Box sx={{ position: 'relative', width: '100%' }}>
-            <TextField
-                ref={textFieldRef}
-                value={value}
-                onChange={handleOnChange}
-                fullWidth
-                multiline={multiline}
-                error={error}
-                helperText={helperText}
-                sx={{ flex: 1 }}
-                {...props}
-            />
-            <Typography
-                position='relative'
-                variant='caption'
-                color={setValueColor()}
-                sx={{
-                    position: 'absolute',
-                    transition: 'all 0.5s ease, bottom 0s',
-                    bottom: height + helperTextHeight,
-                    right: 18,
-                }}
-            >
-                {`${value.length}/${maxLenght}`}
-            </Typography>
-        </Box >
+        <TextField
+            ref={textFieldRef}
+            value={value}
+            onChange={handleOnChange}
+            fullWidth
+            multiline={multiline}
+            error={error}
+            helperText={
+                <Box
+                    component='span'
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        width: '100%',
+                    }}
+                >
+                    <Typography variant="caption">
+                        {helperText && <>
+                            <ErrorOutline fontSize='small' /> {helperText}
+                        </>}
+                    </Typography>
+
+                    {!hideLengthLabel && (
+                        <Typography
+                            variant="caption"
+                            sx={{ color: setValueColor() }}
+                        >
+                            {value.length}/{maxLenght}
+                        </Typography>
+                    )}
+                </Box>
+            }
+            slotProps={{
+                formHelperText: {
+                    component: 'div'
+                }
+            }}
+            sx={{ flex: 1 }}
+            {...props}
+        />
     )
 }

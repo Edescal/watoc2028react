@@ -1,13 +1,10 @@
 import React from 'react';
 import axiosClient from '../clients/axiosClient';
-
-interface User {
-
-}
+import { User } from '../domain/User';
 
 interface APIContextValue {
-    login: (input: { username: string, password: string }) => Promise<User | null>,
-    post: (url: { url: string }) => any,
+    login: (input: { email: string, password: string }) => Promise<User | null>,
+    post: (url: string, body: {}) => any,
 }
 
 const APIContext = React.createContext<APIContextValue | null>(null)
@@ -21,21 +18,21 @@ export const useAPI = () => {
 }
 
 export const APIProvider: React.FC = ({ children }: React.PropsWithChildren) => {
-
     const value: APIContextValue = {
-        login: async ({ username, password }) => {
+        login: async ({ email, password }) => {
             console.log(`Base URL=${axiosClient}`)
-            const response = await axiosClient.post('/login', {
-                username,
-                password,
+            const response = await axiosClient.post<User>('/login', {
+                email,
+                password
             })
-            return response
+            return response.data
         },
-        post: async ({ url }) => {
-            const response = await axiosClient.get(url)
+        post: async (url: string, body = {}) => {
+            const response = await axiosClient.post(url, body)
             return response
         }
     }
+    
     return (
         <APIContext value={value}>
             {children}

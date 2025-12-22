@@ -57,6 +57,11 @@ const MobileNavMenu = ({ open, anchorEl, handleClose, aboutSubmenus }) => {
                     ))}
                 </List>
             </Collapse>
+            <Link to="/contact" style={{ textDecoration: 'none', color: 'black' }}>
+                <MenuItem onClick={handleClose}>
+                    <ListItemText primary='Contact' />
+                </MenuItem>
+            </Link>
             <Link to="/register" style={{ textDecoration: 'none', color: 'black' }}>
                 <MenuItem onClick={handleClose}>
                     <ListItemText primary='Registration' />
@@ -175,7 +180,7 @@ export default function NavBar({ invertImg = true }) {
                                 src="/WatocPNGLogo.png"
                                 sx={{
                                     filter: (trigger || !invertImg) ? 'none' : 'invert()',
-                                    maxHeight: { xs: 60, sm: 70, md: 80 },
+                                    maxHeight: { xs: 50, sm: 70, md: 80 },
                                     padding: { xs: 0, sm: 1, md: 0 },
                                     width: 'auto'
                                 }}
@@ -204,7 +209,7 @@ export default function NavBar({ invertImg = true }) {
                                 </Link>
                             ))}
                         </CustomDropdownMenu>
-                        {/* <HomeMenuLink path='/contact' label='Contact' /> */}
+                        <HomeMenuLink path='/contact' label='Contact' />
                         <HomeMenuLink path='/register' label='Registration' />
                     </Box>
                     <Box
